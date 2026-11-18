@@ -222,11 +222,68 @@
     .contact-card { padding: 28px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); }
     .contact-card h4 { font-size: 17px; margin: 14px 0 6px; }
     .contact-card p { color: var(--muted); font-size: 15px; }
-    footer { border-top: 1px solid var(--line); padding: 40px 0; color: var(--muted); font-size: 14px; }
-    .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 64px 0 28px; color: var(--muted); font-size: 14px; }
+    .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 36px; margin-bottom: 40px; }
+    .foot-grid h5 { color: var(--text); font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+    .foot-grid ul { list-style: none; display: grid; gap: 9px; }
+    .foot-grid a { transition: color .2s; }
+    .foot-grid a:hover { color: var(--text); }
+    .foot-about p { margin: 14px 0 18px; max-width: 300px; }
+    .foot-bottom { border-top: 1px solid var(--line); padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+    .foot-bottom a:hover { color: var(--text); }
     .socials { display: flex; gap: 10px; }
-    .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: .2s; }
+    .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: .2s; font-size: 12px; }
     .socials a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Shared bits for new sections */
+    .alt { background: var(--bg-2); }
+    .note { color: var(--muted); font-size: 13px; text-align: center; margin-top: 28px; }
+    .note a, .form-note a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    .form-note { grid-column: 1/-1; font-size: 13px; color: var(--muted); }
+
+    /* Offers */
+    .offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .offer { position: relative; overflow: hidden; border-radius: var(--radius); padding: 32px; background: var(--card); border: 1px solid var(--line); transition: .3s; }
+    .offer:hover { border-color: rgba(255,77,46,.5); transform: translateY(-4px); }
+    .offer::after { content: ""; position: absolute; width: 200px; height: 200px; right: -70px; top: -70px; border-radius: 50%; background: radial-gradient(circle, rgba(255,77,46,.28), transparent 70%); pointer-events: none; }
+    .offer .label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-2); font-weight: 600; }
+    .offer .big { font-size: 40px; font-weight: 800; line-height: 1.1; margin: 10px 0 8px; letter-spacing: -1px; }
+    .offer p { color: var(--muted); margin-bottom: 22px; }
+    .offer .meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+    .offer .meta a { color: var(--text); font-weight: 600; white-space: nowrap; }
+    .offer .meta a:hover { color: var(--accent); }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .step { padding: 30px 26px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); }
+    .step-num { font-size: 52px; font-weight: 800; line-height: 1; margin-bottom: 18px; background: linear-gradient(180deg, var(--accent), rgba(255,77,46,.15)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .step h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 15px; }
+
+    /* About */
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-img { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(135deg, #222838, #151922); }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-badge { position: absolute; left: 20px; bottom: 20px; background: rgba(11,13,18,.85); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+    .about-badge strong { display: block; font-size: 32px; font-weight: 800; line-height: 1.1; }
+    .about-badge span { color: var(--muted); font-size: 13px; }
+    .about-copy h2 { font-size: clamp(32px, 4.5vw, 46px); line-height: 1.15; letter-spacing: -1px; margin-bottom: 18px; }
+    .about-copy p { color: var(--muted); font-size: 17px; margin-bottom: 16px; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+    .about-stats div { padding: 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+    .about-stats strong { display: block; font-size: 24px; font-weight: 700; }
+    .about-stats span { color: var(--muted); font-size: 14px; }
+
+    /* Sell / exchange */
+    .sell { display: grid; grid-template-columns: 1.2fr 1fr; gap: 44px; align-items: center; padding: 56px; border-radius: 28px; background: linear-gradient(135deg, rgba(255,77,46,.18), rgba(255,138,61,.05)); border: 1px solid rgba(255,77,46,.3); }
+    .sell h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -1px; margin-bottom: 12px; }
+    .sell p { color: var(--muted); margin-bottom: 26px; font-size: 17px; }
+    .sell .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .sell-steps { list-style: none; display: grid; gap: 14px; }
+    .sell-steps li { display: flex; gap: 14px; align-items: center; padding: 16px 18px; border-radius: 14px; background: rgba(11,13,18,.55); border: 1px solid var(--line); }
+    .sell-steps b { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); flex-shrink: 0; font-size: 14px; }
+    .sell-steps span { color: var(--muted); font-size: 14px; display: block; }
 
     /* Reveal animation */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
@@ -236,8 +293,10 @@
     @media (max-width: 960px) {
       .search { grid-template-columns: 1fr 1fr; }
       .search .btn { grid-column: 1/-1; justify-content: center; }
-      .finance-wrap, .booking-box { grid-template-columns: 1fr; }
+      .finance-wrap, .booking-box, .about-wrap, .sell { grid-template-columns: 1fr; }
       .booking-visual { min-height: 280px; }
+      .steps, .foot-grid { grid-template-columns: 1fr 1fr; }
+      .about-img { aspect-ratio: 16/11; }
     }
     @media (max-width: 760px) {
       .nav-links, .nav-cta { display: none; }
@@ -254,6 +313,9 @@
       form { grid-template-columns: 1fr; padding: 30px 22px; }
       .booking-visual { padding: 30px 22px; }
       .calc { padding: 26px 20px; }
+      .steps, .foot-grid { grid-template-columns: 1fr; }
+      .sell { padding: 30px 22px; }
+      .offer { padding: 26px 22px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -269,10 +331,10 @@
       <a href="#home" class="logo"><span class="logo-mark">P9</span>Pi9up</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#inventory">Inventory</a></li>
-        <li><a href="#why">Why Pi9up</a></li>
+        <li><a href="#offers">Offers</a></li>
         <li><a href="#finance">Finance</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <a href="#booking" class="btn btn-primary nav-cta">Book Test Drive</a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
@@ -365,7 +427,69 @@
         <button class="chip" data-filter="sports">Sports</button>
         <button class="chip" data-filter="electric">Electric</button>
       </div>
-      <div class="grid" id="carGrid"></div>
+      <div class="grid" id="carGrid"></div>    </div>
+  </section>
+
+  <!-- Offers -->
+  <section class="alt" id="offers">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Limited-time offers</div>
+        <h2>This month at <span class="accent">Pi9up</span></h2>
+        <p>Year-end deals on new and certified pre-owned cars, while stocks last.</p>
+      </div>
+      <div class="offers">
+        <div class="offer reveal">
+          <div class="label">Exchange bonus</div>
+          <div class="big">Up to ₹50,000</div>
+          <p>Extra bonus on top of your old car's valuation when you exchange it for any new SUV.</p>
+          <div class="meta"><span>Valid till 31 Dec 2026</span><a href="contact.html?topic=Sell%20%2F%20Exchange">Get valuation →</a></div>
+        </div>
+        <div class="offer reveal">
+          <div class="label">Low-rate finance</div>
+          <div class="big">EMI from 7.99%</div>
+          <p>Special interest rates with our partner banks, plus zero processing fee on loans approved this month.</p>
+          <div class="meta"><span>Valid till 31 Dec 2026</span><a href="contact.html?topic=Finance">Check eligibility →</a></div>
+        </div>
+        <div class="offer reveal">
+          <div class="label">Certified pre-owned</div>
+          <div class="big">3 free services</div>
+          <p>Every certified pre-owned car comes with three complimentary services and roadside assistance.</p>
+          <div class="meta"><span>Valid till 31 Dec 2026</span><a href="#inventory">View cars →</a></div>
+        </div>
+      </div>    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>From browsing to driving home in 4 steps</h2>
+        <p>Most customers drive home within a week of their first visit.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Choose your car</h3>
+          <p>Browse online or visit the showroom. Our advisors help you compare models and variants honestly.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3>Take a test drive</h3>
+          <p>Drive it at the showroom or book a free doorstep test drive at a time that suits you.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3>Finance &amp; paperwork</h3>
+          <p>We arrange your loan, insurance, exchange and registration, all under one roof.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">04</div>
+          <h3>Drive home</h3>
+          <p>Collect your car at a personalised delivery ceremony, or we bring it to your doorstep.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -434,7 +558,50 @@
           <span>Your monthly EMI</span>
           <strong id="emiOut">₹20,516</strong>
           <span id="totalOut">Total interest: ₹2,30,960</span>
+        </div>      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="alt" id="about">
+    <div class="container about-wrap">
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1000&q=80" alt="Car on display at the Pi9up showroom" loading="lazy" onerror="this.style.display='none'" />
+        <div class="about-badge"><strong>12+ years</strong><span>Serving drivers in Bengaluru</span></div>
+      </div>
+      <div class="about-copy reveal">
+        <div class="eyebrow">About Pi9up</div>
+        <h2>A showroom built around <span class="accent">trust</span></h2>
+        <p>Pi9up started in 2014 with one simple idea: buying a car should be exciting, not stressful. What began as a small pre-owned car lot is now a full-service showroom for new and certified pre-owned cars, with finance, insurance and service under one roof.</p>
+        <p>Our advisors don't work on pressure. We help you pick the car that fits your life and your budget, and we're still here for every service and upgrade after that.</p>
+        <div class="about-stats">
+          <div><strong>20,000 sq ft</strong><span>Showroom &amp; lounge</span></div>
+          <div><strong>40+ cars</strong><span>On display every day</span></div>
+          <div><strong>25 bays</strong><span>In our service centre</span></div>
+          <div><strong>60+ experts</strong><span>Sales, finance &amp; service</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sell / exchange -->
+  <section>
+    <div class="container">
+      <div class="sell reveal">
+        <div>
+          <div class="eyebrow">Sell or exchange</div>
+          <h2>Get the best price for your current car</h2>
+          <p>Free inspection, a fair quote in 30 minutes, and instant payment or adjustment against your new car. We handle the RC transfer paperwork for you.</p>
+          <div class="btns">
+            <a href="contact.html?topic=Sell%20%2F%20Exchange" class="btn btn-primary">Get a Free Valuation</a>
+            <a href="tel:+919845236710" class="btn btn-ghost">Call +91 98452 36710</a>
+          </div>
+        </div>
+        <ul class="sell-steps">
+          <li><b>1</b><div>Share your car details<span>Model, year, kilometres and a few photos</span></div></li>
+          <li><b>2</b><div>Free inspection<span>At the showroom or at your home</span></div></li>
+          <li><b>3</b><div>Get paid or exchange<span>Same-day payment or instant adjustment</span></div></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -482,6 +649,7 @@
           <div><label for="fCar">Car model</label><select id="fCar"></select></div>
           <div><label for="fDate">Preferred date</label><input id="fDate" type="date" required /></div>
           <div class="full"><label for="fMsg">Message (optional)</label><textarea id="fMsg" rows="3" placeholder="Doorstep test drive, exchange enquiry, etc."></textarea></div>
+          <p class="form-note">A valid driving licence is required for the test drive. By booking, you agree to be contacted by Pi9up and accept our <a href="privacy.html">Privacy Policy</a>.</p>
           <div class="full"><button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Confirm Booking</button></div>
           <div class="form-msg" id="formMsg"></div>
         </form>
@@ -500,12 +668,12 @@
         <div class="contact-card reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <h4>Showroom</h4>
-          <p>Pi9up Car Showroom<br/>Main Road, Your City</p>
+          <p>No. 42, Outer Ring Road, Marathahalli<br/>Bengaluru, Karnataka 560037</p>
         </div>
         <div class="contact-card reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <h4>Call Us</h4>
-          <p>+91 00000 00000<br/>Sales &amp; Service</p>
+          <p>+91 98452 36710<br/>Sales &amp; Service</p>
         </div>
         <div class="contact-card reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -522,13 +690,46 @@
   </section>
 
   <footer>
-    <div class="container foot">
-      <a href="#home" class="logo" style="font-size:20px"><span class="logo-mark" style="width:32px;height:32px;font-size:13px">P9</span>Pi9up</a>
-      <span>© <span id="year"></span> Pi9up Car Showroom. All rights reserved.</span>
-      <div class="socials">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="YouTube">YT</a>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-about">
+          <a href="index.html" class="logo" style="font-size:20px"><span class="logo-mark" style="width:32px;height:32px;font-size:13px">P9</span>Pi9up</a>
+          <p>New and certified pre-owned cars in Bengaluru, with honest pricing, easy finance and expert service since 2014.</p>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html#inventory">Inventory</a></li>
+            <li><a href="index.html#offers">Offers</a></li>
+            <li><a href="index.html#finance">Finance &amp; EMI</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Help</h5>
+          <ul>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="index.html#booking">Book a test drive</a></li>
+            <li><a href="contact.html?topic=Sell%20%2F%20Exchange">Sell / exchange</a></li>
+            <li><a href="contact.html?topic=Service">Book a service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Visit us</h5>
+          <ul>
+            <li>No. 42, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</li>
+            <li><a href="tel:+919845236710">+91 98452 36710</a></li>
+            <li><a href="mailto:sales@pi9up.com">sales@pi9up.com</a></li>
+            <li>Mon – Sat 9:30 AM – 8 PM · Sun 10 AM – 6 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> Pi9up Car Showroom. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="disclaimer.html">Disclaimer</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></span>
       </div>
     </div>
   </footer>
